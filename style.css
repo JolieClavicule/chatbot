@@ -1,0 +1,151 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-container {
+  flex: 1;
+}
+
+.sidebar-container {
+  width: 250px;
+  padding: 20px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.bot-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.bot-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.bot-name {
+  font-size: 1.2em;
+}
+
+.bot-item:hover::after {
+  content: attr(data-commands);
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  white-space: pre;
+  z-index: 1000;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chat-box {
+  flex: 1;
+  overflow-y: scroll;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+
+.message {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sender-message {
+  background-color: #d1e7dd;
+  align-self: flex-end;
+  margin-left: auto;
+  align-items: flex-end;
+}
+
+.receiver-message {
+  background-color: #f8d7da;
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+.message .image {
+  margin-right: 10px;
+}
+
+.message-header img {
+  width: 24px;
+  height: 24px;
+}
+
+.sender-message .image {
+  margin-left: 10px;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.sender-message .message-container {
+  align-items: flex-end;
+}
+
+.sender-message .message-header {
+  justify-content: flex-end;
+}
+
+.receiver-message .message-container {
+  align-items: flex-start;
+}
+
+.message-header {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.message-body {
+  background-color: white;
+  padding: 0px 10px;
+  border-radius: 10px;
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  text-align: left;
+  height: fit-content;
+}
+
+.sender-message .message-body {
+  text-align: right;
+}
+
+.field {
+  margin: 0;
+}
