@@ -46,7 +46,18 @@ export class Bot {
                     responseContent = this.getCommands();
                     break;
                 case 'all':
-                    responseContent = await this.getAll();
+                    const promises = [];
+                    if (this.commands.includes('random cocktail')) {
+                        promises.push(this.getRandomCocktail());
+                    }
+                    if (this.commands.includes('random chuck joke')) {
+                        promises.push(this.getRandomChuckJoke());
+                    }
+                    if (this.commands.includes('random user')) {
+                        promises.push(this.getRandomUser());
+                    }
+                    const results = await Promise.all(promises);
+                    responseContent = results.join('\n');
                     break;
             }
         } catch (error) {
@@ -146,16 +157,6 @@ export class Bot {
             return data.results.map(user => `${user.name.first} ${user.name.last}`).join(', ');
         }
         
-    }
-
-    async getAll() {
-        const [joke, cocktail, user] = await Promise.all([
-            this.getRandomChuckJoke(),
-            this.getRandomCocktail(),
-            this.getRandomUser()
-        ]);
-
-        return `Random Joke: ${joke}\nRandom Cocktail: ${cocktail}\nRandom User: ${user}`;
     }
 
     getCommands() {

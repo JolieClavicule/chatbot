@@ -39,7 +39,7 @@ export class Message {
             <div class="message-container">
                 ${headerHtml}
                 <div class="message-body">
-                    ${this.content}
+${this.content}
                 </div>
             </div>`;
 
